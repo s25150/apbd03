@@ -4,7 +4,7 @@ public static class Configuration
 {
     public static IEndpointRouteBuilder RegisterAnimalsUserEndpoints(this IEndpointRouteBuilder endpoints)
     {
-        endpoints.MapGet("/animals", (IAnimalsService service) => TypedResults.Ok(service.GetAnimals()));
+        endpoints.MapGet("/animals", (IAnimalsService service, string orderValue) => TypedResults.Ok(service.GetAnimals(orderValue)));
         endpoints.MapGet("/animals/{id:int}",
             (int id, IAnimalsService service) => TypedResults.Ok(service.GetAnimal(id)));
         endpoints.MapPost("/animals",

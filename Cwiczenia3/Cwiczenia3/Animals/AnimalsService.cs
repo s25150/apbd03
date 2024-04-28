@@ -8,9 +8,9 @@ public class AnimalsService : IAnimalsService
     {
         _animalsRepository = animalsRepository;
     }
-    public IEnumerable<Animal> GetAnimals()
+    public IEnumerable<Animal> GetAnimals(string orderValue)
     {
-        return _animalsRepository.GetAnimals();
+        return _animalsRepository.GetAnimals(orderValue);
     }
 
     public int CreateAnimal(Animal animal)

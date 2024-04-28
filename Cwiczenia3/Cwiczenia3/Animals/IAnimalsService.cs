@@ -2,7 +2,7 @@ namespace Cwiczenia3.Animals;
 
 public interface IAnimalsService
 {
-    IEnumerable<Animal> GetAnimals();
+    IEnumerable<Animal> GetAnimals(string orderValue);
     int CreateAnimal(Animal animal);
     Animal? GetAnimal(int idAnimal);
     int UpdateAnimal(Animal animal);
