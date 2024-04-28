@@ -26,7 +26,7 @@ public class AnimalsRepository : IAnimalsRepository
         {
             var grade = new Animal
             {
-                IdAnimal = (int)dr["IdSAnimal"],
+                IdAnimal = (int)dr["IdAnimal"],
                 Name = dr["Name"].ToString(),
                 Description = dr["Description"].ToString(),
                 Category = dr["Category"].ToString(),
@@ -45,8 +45,7 @@ public class AnimalsRepository : IAnimalsRepository
         
         using var cmd = new SqlCommand();
         cmd.Connection = con;
-        cmd.CommandText = "INSERT INTO Animal(IdAnimal, Name, Description, Category, Area) VALUES(@Name, @Description, @Category, @Area)";
-        cmd.Parameters.AddWithValue("@IdAnimal", animal.IdAnimal);
+        cmd.CommandText = "INSERT INTO Animal VALUES(@Name, @Description, @Category, @Area)"; 
         cmd.Parameters.AddWithValue("@Name", animal.Name);
         cmd.Parameters.AddWithValue("@Description", animal.Description);
         cmd.Parameters.AddWithValue("@Category", animal.Category);
@@ -72,7 +71,7 @@ public class AnimalsRepository : IAnimalsRepository
         
         var animal = new Animal
         {
-            IdAnimal = (int)dr["IdSAnimal"],
+            IdAnimal = (int)dr["IdAnimal"],
             Name = dr["Name"].ToString(),
             Description = dr["Description"].ToString(),
             Category = dr["Category"].ToString(),
